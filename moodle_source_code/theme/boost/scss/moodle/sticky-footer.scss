@@ -1,0 +1,109 @@
+/**
+ * This file contains the styles required to make the footer sticky.
+ */
+
+html,
+body {
+    height: 100%;
+}
+
+/** Dark Top Overrides **/
+
+html,
+body {
+    height: 100%;
+    background-image: url("boost/scss/moodle/img/wp7848331-devops-wallpapers.png");
+    background-size: cover;
+}
+.navbar-light .navbar-brand {
+	filter: invert(1);
+	-webkit-filter: invert(1);
+}
+.navbar.fixed-top {
+	border-bottom: rgba(0,0,0,0.7) 1px solid !important;
+}
+.bg-white { background-color: rgba(0,0,0,0.7) !important; }
+.navbar-light .navbar-nav .nav-link { color: #fff; }
+.navbar-light .navbar-nav .nav-link:hover { color: #ccc; }
+.primary-navigation .navigation .nav-link {
+	height: 60px;
+	color: #fff !important;
+	border-top: 3px solid transparent;
+}
+.primary-navigation .navigation .nav-link:hover { background-color: rgba(0,0,0,0.4); }
+
+.navbar-light .navbar-nav .show > .nav-link, .navbar-light .navbar-nav .active > .nav-link, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .nav-link.active {
+	color: #fff;
+}
+.navbar-light .navbar-nav .show > .nav-link:hover, .navbar-light .navbar-nav .active > .nav-link:hover, .navbar-light .navbar-nav .nav-link.show:hover, .navbar-light .navbar-nav .nav-link.active:hover {
+	color: #fff;
+	background-color: rgba(0,0,0,0.4);
+}
+.nameGameIcon {
+	color:#fff;
+}
+
+
+/** End Comment **/
+
+
+.stickyfooter {
+    position: fixed;
+    right: 0;
+    left: 0;
+    height: $navbar-height + 1px;
+    bottom: -$navbar-height;
+    transition: bottom .5s;
+    z-index: $zindex-dropdown;
+    overflow: hidden;
+    box-shadow: 0 0 1rem rgba($black, .15);
+}
+
+.hasstickyfooter .stickyfooter {
+    bottom: 0;
+}
+
+/* Standard components fixes for sticky footer. */
+
+.stickyfooter ul.pagination {
+    margin-bottom: map-get($spacers, 1);
+}
+
+
+/* Breakpoints fixes. */
+
+@include media-breakpoint-up(sm) {
+    #page-wrapper {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        #page {
+            &:not(.drawers) {
+                flex: 1 0 auto;
+            }
+            display: flex;
+            flex-direction: column;
+            #page-content {
+                flex: 1 0 auto;
+            }
+        }
+        #page-footer {
+            flex-shrink: 0;
+        }
+    }
+}
+
+@include media-breakpoint-down(sm) {
+    #page-wrapper {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        #page {
+            &:not(.drawers) {
+                flex: 1 0 auto;
+            }
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}
